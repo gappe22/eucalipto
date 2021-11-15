@@ -1,0 +1,19 @@
+{
+  "name": "eucalipto",
+  "version": "0.0.1",
+  "description": "most human bot on discord.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gappe22/eucalipto.git"
+  },
+  "author": "coconut Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gappe22/eucalipto/issues"
+  },
+  "homepage": "https://github.com/gappe22/eucalipto#readme"
+}
