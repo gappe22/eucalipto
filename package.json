@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/gappe22/eucalipto/issues"
   },
-  "homepage": "https://github.com/gappe22/eucalipto#readme"
+  "homepage": "https://github.com/gappe22/eucalipto#readme",
+  "dependencies": {
+    "discord.js": "^13.3.1"
+  }
 }
