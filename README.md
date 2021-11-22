@@ -2,5 +2,5 @@
 most human bot on discord.
 
 ## Setup
-install dependencies with `npm install`.
-create config.json file with secret token.
+install dependencies with `npm install`.  
+remove the .test from `config.json.test`.
