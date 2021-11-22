@@ -1,6 +1,7 @@
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
-const { secretToken, applicationID, testingGuild } = require('../config.json');
+const { token, clientID } = require('../config.json');
+const TESTING_GUILD = '911289012688392253'
 
 const commands = [
     {
@@ -9,11 +10,15 @@ const commands = [
     }
 ]
 
-const discordRest = new REST({version: '9'}).setToken(secretToken);
+const discordRest = new REST({version: '9'}).setToken(token);
 
-module.exports = async function refreshCommands() {
-    await discordRest.put(
-        Routes.applicationGuildCommands(applicationID, testingGuild),
-        {body: commands}
-    );
+exports.refreshCommands = async () => {
+    try {
+        await discordRest.put(
+            Routes.applicationGuildCommands(clientID, TESTING_GUILD),
+            {body: commands}
+        );
+    } catch (e) {
+        console.error(e);
+    }
 }

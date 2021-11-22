@@ -1,11 +1,16 @@
 const { Client, Intents } = require('discord.js');
-const { secretToken } = require('../config.json');
-const commands = require('commands.js');
+const { token } = require('../config.json');
+const commands = require('./commands');
 
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+gatewayIntents = [
+    Intents.FLAGS.GUILDS,
+    Intents.FLAGS.GUILD_MESSAGES,
+]
+
+const client = new Client({ intents: gatewayIntents });
 
 client.once('ready', () => {
-    console.log('eucalipto started!')
+    console.log('eucalipto started!');
     commands.refreshCommands();
 });
 
@@ -17,4 +22,4 @@ client.on('interactionCreate', async (interaction) => {
     }
 })
 
-client.login(secretToken);
+client.login(token);
