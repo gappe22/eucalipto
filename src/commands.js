@@ -12,7 +12,7 @@ const commands = [
 
 const discordRest = new REST({version: '9'}).setToken(token);
 
-exports.refreshCommands = async () => {
+exports.refreshGuildCommands = async () => {
     try {
         await discordRest.put(
             Routes.applicationGuildCommands(clientID, TESTING_GUILD),

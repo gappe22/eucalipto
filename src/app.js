@@ -11,7 +11,7 @@ const client = new Client({ intents: gatewayIntents });
 
 client.once('ready', () => {
     console.log('eucalipto started!');
-    commands.refreshCommands();
+    commands.refreshGuildCommands();
 });
 
 client.on('interactionCreate', async (interaction) => {
