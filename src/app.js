@@ -1,6 +1,6 @@
-const { Client, Intents } = require('discord.js');
+const { Client, Intents, MessageEmbed } = require('discord.js');
 const { token } = require('../config.json');
-const commands = require('./commands');
+const commands = require('./commandsManager');
 
 gatewayIntents = [
     Intents.FLAGS.GUILDS,
@@ -11,14 +11,24 @@ const client = new Client({ intents: gatewayIntents });
 
 client.once('ready', () => {
     console.log('eucalipto started!');
-    commands.refreshGuildCommands();
+    commands.registerCommands();
 });
 
 client.on('interactionCreate', async (interaction) => {
     if (!interaction.isCommand()) return;
+    
+    const command = commands.getCommand(interaction.commandName);
 
-    if (interaction.commandName === 'ping') {
-        interaction.reply('pong');
+    if (command) {
+        try {
+            await command.execute(interaction);
+        } catch (e) {
+            console.log(e);
+            await interaction.reply({
+                content: "This command is throwing an error, don't really know why...",
+                ephemeral: true
+            });
+        }
     }
 })
 
