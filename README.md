@@ -1,5 +1,5 @@
 ## Eucalipto
-most human bot on discord.
+WIP discord bot
 
 ## Setup
 install dependencies with `npm install`.  
